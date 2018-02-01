@@ -25,16 +25,10 @@ public class PlayerInput : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                PlayerSpeed = PlayerSpeed + 0.05f;
+                PlayerSpeed = PlayerSpeed + 1f;
                 rb.AddForce(new Vector2(PlayerSpeed, 0), ForceMode2D.Impulse);
             }
-            if (!Player.isVisible) //is ball sprite visible within the camera (SUPER USEFUL)
-            {
-                this.GetComponent<Transform>().position = StartPos; //reset position
-                PlayerSpeed = 0;
-                rb.velocity = new Vector2(0, 0);
-                rb.angularVelocity = 0f;
-            }
+
         }
     }
 }
