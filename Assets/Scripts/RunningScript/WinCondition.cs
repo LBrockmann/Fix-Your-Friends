@@ -18,12 +18,12 @@ public class WinCondition : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other) //Creating function for finish line in the running race
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Collided");
-            SceneManager.LoadScene("MenuScene");
+            Debug.Log("Collided"); 
+            SceneManager.LoadScene("MenuScene"); //When the player crosses the finish line they should be pulled straight back to the menu
         }
     }
 }
