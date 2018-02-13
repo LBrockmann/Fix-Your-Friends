@@ -16,12 +16,12 @@ public class WinCondition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer = timer-1 * Time.deltaTime; //setting time limit for the game
-        Debug.Log(timer);
+        timer = timer - 1 * Time.deltaTime; //setting time limit for the game
 
         if (timer <= 0)
         {
             SceneManager.LoadScene("MenuScene"); //If the timer runs out the player is pulled back into the menu without the bonus
+            Debug.Log("Loss");
         }
     }
 
@@ -29,7 +29,8 @@ public class WinCondition : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Collided"); 
+            Debug.Log("Collided");
+            MoodBehaviour.Instance.excersize += 10f;
             SceneManager.LoadScene("MenuScene"); //When the player crosses the finish line they should be pulled straight back to the menu
             //Add onto the player stats somehow
         }
