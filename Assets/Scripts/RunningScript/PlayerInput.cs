@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    SpriteRenderer playerSprite;
+    SpriteRenderer Player;
     public float PlayerSpeed; //creating public float to easily edit how many clicks required to move the player 
     public float Resistance; //creating public float for easy access
     public Vector2 StartPos; //Vector just to ensure the player starts in the right spot
@@ -17,7 +17,6 @@ public class PlayerInput : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>(); //calling the rigid body
         this.GetComponent<Transform>().position = StartPos; //setting start position just in case
         PlayerSpeed = 0.1f;
-        playerSprite = GetComponent<SpriteRenderer>();
     }
 
 

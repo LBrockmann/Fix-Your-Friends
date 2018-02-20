@@ -9,20 +9,17 @@ public class FingerBehaviour : MonoBehaviour
     int Bottomcount; //this is the number of "finger wags" the player has finished. 
     int TopCount; //there are two of these so the player has to hit both boxes enough times to win, otherwise they could just spam the top or bottom box
     public int finishLine; //setting public "finnish line" so I can easily edit how difficult the game is from unity
-    private float timer;
 
     void Start()
     {
         Bottomcount = 0;
         TopCount = 0;
-        timer = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
         faceMouse();
-        timeLimit();
 
         if(Bottomcount >= finishLine && TopCount >= finishLine) //If both win counters are equal too or higher than the "finish line" the game ends
         {
@@ -41,16 +38,6 @@ public class FingerBehaviour : MonoBehaviour
         transform.up = direction; //setting the top of the sprite to point towards the mouse
     }
 
-    void timeLimit()
-    {
-        timer = timer - 1 * Time.deltaTime; //setting time limit for the game
-
-        if (timer <= 0)
-        {
-            SceneManager.LoadScene("MenuScene"); //If the timer runs out the player is pulled back into the menu without the bonus
-            Debug.Log("loss");
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

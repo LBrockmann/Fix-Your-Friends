@@ -29,8 +29,6 @@ public class MoodBehaviour : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    SpriteRenderer playerSprite;
-
     public float hygiene;
     public float excersize;
 
@@ -45,7 +43,7 @@ public class MoodBehaviour : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        playerSprite = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame

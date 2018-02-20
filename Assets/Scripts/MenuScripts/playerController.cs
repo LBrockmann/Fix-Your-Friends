@@ -70,6 +70,10 @@ public class playerController : MonoBehaviour {
         {
             playerhomeSprite.color = Color.blue;
         }
+        if(MoodBehaviour.Instance.happiness <= 39 && MoodBehaviour.Instance.happiness >= 20)
+        {
+            playerhomeSprite.color = Color.magenta;
+        }
         if (MoodBehaviour.Instance.happiness <= 19 && MoodBehaviour.Instance.happiness >= 11)
         {
             playerhomeSprite.color = Color.grey;
