@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class FingerTimer : MonoBehaviour { //image and text should both be light up, why are they not? I can't drag things into the inspector either
+public class TextingTimerFunctioning : MonoBehaviour {
+
     public Text onScreenText;
-    private string tutorialText = "Wag Your Finger to Tell Them Off!";
+    private string tutorialText = "Type out messages and hit enter to send them to your friend!";
     private string lossText = "Too Slow!";
     Image timerBar;
     public float maxTime = 5f;
@@ -14,15 +15,19 @@ public class FingerTimer : MonoBehaviour { //image and text should both be light
 
     bool hasSwitchedBack = false;
 
+
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
+
         timerBar = GetComponent<Image>();
         timeLeft = maxTime;
         onScreenText.text = tutorialText;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (timeLeft > 0)
         {
             timeLeft -= Time.deltaTime;
@@ -31,20 +36,16 @@ public class FingerTimer : MonoBehaviour { //image and text should both be light
         else
         {
             hasSwitchedBack = true;
-
-           
         }
 
-
-        if(hasSwitchedBack)
+        if (hasSwitchedBack)
         {
             hasSwitchedBack = false;
+            //Add wait a bit here
             onScreenText.text = lossText;
             //Time.timeScale = 0;
             SceneManager.LoadScene("MenuScene"); //If the timer runs out the player is pulled back into the menu without the bonus
             Debug.Log("Loss");
-            MoodBehaviour.Instance.happiness -= 30;
         }
-
     }
 }

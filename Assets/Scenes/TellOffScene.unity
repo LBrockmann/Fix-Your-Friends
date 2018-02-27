@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onScreenText: {fileID: 192261659}
-  maxTime: 100
+  maxTime: 10
 --- !u!1 &1372822000
 GameObject:
   m_ObjectHideFlags: 0

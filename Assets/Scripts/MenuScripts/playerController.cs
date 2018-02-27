@@ -33,9 +33,9 @@ public class playerController : MonoBehaviour {
             hudText.text = ("excersize: " + MoodBehaviour.Instance.excersize + " hygiene: " + MoodBehaviour.Instance.hygiene);
         }
 
-
         if (Input.GetKey(left))
         {
+            Debug.Log("moving left");
             theRB.velocity = new Vector2(-moveSpeed, theRB.velocity.y);
         }
 

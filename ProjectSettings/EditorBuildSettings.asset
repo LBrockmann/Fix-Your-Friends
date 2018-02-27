@@ -14,3 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TellOffScene.unity
     guid: 7aa46253bf82b6b4188d5ac00c569e3d
+  - enabled: 1
+    path: Assets/Scenes/YouLose.unity
+    guid: a8b9945e603e55341ace635b169d72fe
+  - enabled: 1
+    path: Assets/Scenes/Opening Scene.unity
+    guid: ae840160ec2aea649a302f52e52de3bc
+  - enabled: 1
+    path: Assets/Scenes/TextScreen.unity
+    guid: 2d4a54a6e61245546bb903aef810e0eb

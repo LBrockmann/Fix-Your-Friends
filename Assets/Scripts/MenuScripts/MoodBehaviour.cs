@@ -31,13 +31,16 @@ public class MoodBehaviour : MonoBehaviour
 
     public float hygiene;
     public float excersize;
+    public float friendship;
 
+    
     public float hygieneLoss;
     public float excersizeLoss;
+    public float friendshipLoss;
 
     public float happiness;
     public float happinessGain;
-
+    
 
 
     // Use this for initialization
@@ -50,9 +53,16 @@ public class MoodBehaviour : MonoBehaviour
     void Update()
     {
         //Set different loss rates to a random number
+        hygieneLoss = Random.Range(1, 5);
+        excersizeLoss = Random.Range(1, 3);
+        friendshipLoss = Random.Range(1, 7);
         drain();
         joy();
 
+        if (happiness <= 0)
+        {
+            SceneManager.LoadScene("YouLose");
+        }
 
     }
 
@@ -63,8 +73,9 @@ public class MoodBehaviour : MonoBehaviour
 
         if (sceneName == "MenuScene")
         {
-            hygiene -= hygieneLoss * Time.deltaTime; //If the menu scene is open, each variable should slowly decrease by its randomly determined loss rate
-            excersize -= excersizeLoss * Time.deltaTime;
+            if (hygiene >= 0) { hygiene -= hygieneLoss * Time.deltaTime; } //If the menu scene is open, each variable should slowly decrease by its randomly determined loss rate
+            if (excersize >= 0) { excersize -= excersizeLoss * Time.deltaTime; } //If statements added to prevent all ints from dropping into huge negatives
+            if (friendship >= 0) { friendship -= friendshipLoss * Time.deltaTime;}
         }
     }
 

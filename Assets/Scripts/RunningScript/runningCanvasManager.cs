@@ -38,11 +38,12 @@ public class runningCanvasManager : MonoBehaviour {
         if (hasSwitchedBack)
         {
             hasSwitchedBack = false;
+            //Add wait a bit here
             onScreenText.text = lossText;
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             SceneManager.LoadScene("MenuScene"); //If the timer runs out the player is pulled back into the menu without the bonus
             Debug.Log("Loss");
-            MoodBehaviour.Instance.happiness -= 10;
+            MoodBehaviour.Instance.happiness -= 30;
         }
 	}
 }
