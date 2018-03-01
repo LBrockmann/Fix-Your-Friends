@@ -84,7 +84,7 @@ public class playerController : MonoBehaviour {
         }
         if (MoodBehaviour.Instance.happiness <= 0)
         {
-            Debug.Log("game over");
+            Debug.Log("Game Over");
         }
     }
 }

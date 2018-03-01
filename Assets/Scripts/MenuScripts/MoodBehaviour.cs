@@ -33,6 +33,8 @@ public class MoodBehaviour : MonoBehaviour
     public float excersize;
     public float friendship;
 
+    public float creepiness;
+
     
     public float hygieneLoss;
     public float excersizeLoss;
@@ -61,7 +63,7 @@ public class MoodBehaviour : MonoBehaviour
 
         if (happiness <= 0)
         {
-            SceneManager.LoadScene("YouLose");
+            SceneManager.LoadScene("Game Over");
         }
 
     }
@@ -83,4 +85,11 @@ public class MoodBehaviour : MonoBehaviour
     {
         happiness += happinessGain * Time.deltaTime;
     }
+
+    void creepinessScale ()
+    {
+        creepiness = creepiness = +1 * Time.deltaTime;
+    }
+
+   
 }
