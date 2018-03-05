@@ -18,9 +18,9 @@ public class runningCanvasManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         
-        timerBar = GetComponent<Image>();
-        timeLeft = maxTime;
-        onScreenText.text = tutorialText;
+        timerBar = GetComponent<Image>(); //loading image of timer bar
+        timeLeft = maxTime; //resetting timer at the begining of  each mini game
+        onScreenText.text = tutorialText; //when game opens, start on tutorial teaching texts
 	}
 	
 	// Update is called once per frame
@@ -28,7 +28,7 @@ public class runningCanvasManager : MonoBehaviour {
 		if (timeLeft > 0)
         {
             timeLeft -= Time.deltaTime;
-            timerBar.fillAmount = timeLeft / maxTime; 
+            timerBar.fillAmount = timeLeft / maxTime;  //drain the timer bar
         }
         else
         {
@@ -40,10 +40,9 @@ public class runningCanvasManager : MonoBehaviour {
             hasSwitchedBack = false;
             //Add wait a bit here
             onScreenText.text = lossText;
-            //Time.timeScale = 0;
             SceneManager.LoadScene("MenuScene"); //If the timer runs out the player is pulled back into the menu without the bonus
             Debug.Log("Loss");
-            MoodBehaviour.Instance.happiness -= 30;
+            MoodBehaviour.Instance.happiness -= 30; //if the player loses, they make their friend feel bad for being unable to complete the task so they lose happiness
         }
 	}
 }

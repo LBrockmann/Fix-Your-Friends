@@ -27,6 +27,9 @@ public class MoodBehaviour : MonoBehaviour
             instance = this;
         }
         DontDestroyOnLoad(this.gameObject);
+
+       // QualitySettings.vSyncCount = 0;  // VSync must be disabled
+        //Application.targetFrameRate = 45;
     }
 
     public float hygiene;
@@ -42,6 +45,8 @@ public class MoodBehaviour : MonoBehaviour
 
     public float happiness;
     public float happinessGain;
+
+    public int playerUnderstands = 0;
     
 
 
@@ -52,7 +57,7 @@ public class MoodBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Set different loss rates to a random number
         hygieneLoss = Random.Range(1, 5);
@@ -60,11 +65,15 @@ public class MoodBehaviour : MonoBehaviour
         friendshipLoss = Random.Range(1, 7);
         drain();
         joy();
+        creepinessScale();
+        Debug.Log(creepiness);
 
-        if (happiness <= 0)
+        if (Input.GetKeyDown("space"))
         {
-            SceneManager.LoadScene("Game Over");
+            happiness = 130;
         }
+
+     
 
     }
 
@@ -84,11 +93,22 @@ public class MoodBehaviour : MonoBehaviour
     void joy()
     {
         happiness += happinessGain * Time.deltaTime;
+        if (happiness >= 120)
+        {
+            SceneManager.LoadScene("YouDidIt");
+            Destroy(this.gameObject);
+            playerUnderstands = 1;
+        }
     }
 
     void creepinessScale ()
     {
-        creepiness = creepiness = +1 * Time.deltaTime;
+        creepiness +=  1 * Time.deltaTime;
+        if(creepiness == 400)
+        {
+            SceneManager.LoadScene("Game Over");
+            Destroy(this.gameObject);
+        }
     }
 
    
