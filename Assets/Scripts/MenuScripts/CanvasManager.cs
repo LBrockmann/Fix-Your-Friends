@@ -12,14 +12,24 @@ public class CanvasManager : MonoBehaviour {
     bool runButtonPressed;
     bool wagButtonPressed;
     bool textButtonPressed;
+    bool helpButtonPressed;
+    bool restartButtonPressed;
+    bool helpresetBool;
     private float timer1;
     private float timer2;
+
+    public GameObject panel;
+
+    public Button help;
 
     // Use this for initialization
     void Start() {
         runButtonPressed = false;
         wagButtonPressed = false;
         textButtonPressed = false;
+        helpButtonPressed = false;
+        restartButtonPressed = false;
+
     }
 
     // Update is called once per frame
@@ -45,6 +55,26 @@ public class CanvasManager : MonoBehaviour {
             textButton.text = "It's okay";
             SceneManager.LoadScene("TextScreen");
         }
+
+       if(helpButtonPressed == true)
+        {
+            panel.SetActive(true);
+        }
+        else
+        {
+            panel.SetActive(false);
+        }
+
+       if(restartButtonPressed)
+        {
+            MoodBehaviour.Instance.happiness = 20;
+            MoodBehaviour.Instance.creepiness = 0;
+            MoodBehaviour.Instance.happiness = 50;
+            MoodBehaviour.Instance.hygiene = 50;
+            MoodBehaviour.Instance.friendship = 50;
+
+           SceneManager.LoadScene("Opening Scene");
+        }
         
     }
     //Button Functions
@@ -61,6 +91,23 @@ public class CanvasManager : MonoBehaviour {
     public void OnTextButtonPressed()
     {
         textButtonPressed = true;
+    }
+
+    public void OnHelpButtonPressed()
+    {
+        if (helpButtonPressed != true)
+        {
+            helpButtonPressed = true;
+        }
+        else
+        {
+            helpButtonPressed = false;
+        }
+    }
+
+    public void onRestartButtonPressed()
+    {
+        restartButtonPressed = true;
     }
 
 }

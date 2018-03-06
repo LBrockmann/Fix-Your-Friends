@@ -12,6 +12,7 @@ public class TextingTimerFunctioning : MonoBehaviour {
     Image timerBar;
     public float maxTime = 5f;
     float timeLeft;
+    bool restartReady;
 
     bool hasSwitchedBack = false;
 
@@ -43,9 +44,16 @@ public class TextingTimerFunctioning : MonoBehaviour {
             hasSwitchedBack = false;
             //Add wait a bit here
             onScreenText.text = lossText;
-            //Time.timeScale = 0;
-            SceneManager.LoadScene("MenuScene"); //If the timer runs out the player is pulled back into the menu without the bonus
-            Debug.Log("Loss");
+            restartReady = true;
+  restartReady = false;
+                SceneManager.LoadScene("MenuScene"); //If the timer runs out the player is pulled back into the menu without the bonus
+                Debug.Log("Loss");
+            
         }
+    }
+
+     IEnumerator waitTimer()
+    {
+        yield return new WaitForSeconds(1);
     }
 }

@@ -19,12 +19,14 @@ public class FingerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        faceMouse();
 
-        if(Bottomcount >= finishLine && TopCount >= finishLine) //If both win counters are equal too or higher than the "finish line" the game ends
+        faceMouse();
+        creepinessCurve();
+
+        if (Bottomcount >= finishLine && TopCount >= finishLine) //If both win counters are equal too or higher than the "finish line" the game ends
         {
             MoodBehaviour.Instance.hygiene += 20f;
-            MoodBehaviour.Instance.happiness -= 15f;
+            MoodBehaviour.Instance.happiness -= 10f;
             SceneManager.LoadScene("MenuScene"); //Load the menu scene
         }
     }
@@ -57,4 +59,27 @@ public class FingerBehaviour : MonoBehaviour
 
     }
 
+    void creepinessCurve()
+    {
+        if (MoodBehaviour.Instance.creepiness <= 50)
+        {
+            finishLine = 10;
+        }
+        if (MoodBehaviour.Instance.creepiness >= 51 && MoodBehaviour.Instance.creepiness <= 100)
+        {
+            finishLine = 20;
+        }
+        if (MoodBehaviour.Instance.creepiness >= 101 && MoodBehaviour.Instance.creepiness <= 200)
+        {
+            finishLine = 30;
+        }
+        if (MoodBehaviour.Instance.creepiness >= 201 && MoodBehaviour.Instance.creepiness <= 300)
+        {
+            finishLine = 40;
+        }
+        if (MoodBehaviour.Instance.creepiness >= 301 && MoodBehaviour.Instance.creepiness <= 350)
+        {
+            finishLine = 100;
+        }
+    }
 }

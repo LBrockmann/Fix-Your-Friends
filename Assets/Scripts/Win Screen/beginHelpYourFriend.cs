@@ -17,6 +17,6 @@ public class beginHelpYourFriend : MonoBehaviour {
 
     public void onButtonPushed()
     {
-        SceneManager.LoadScene("Opening Scene");
+        SceneManager.LoadScene("Opening Scene");    
     }
 }

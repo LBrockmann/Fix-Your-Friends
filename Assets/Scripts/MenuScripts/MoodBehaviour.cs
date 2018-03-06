@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 
 public class MoodBehaviour : MonoBehaviour
-{ //Dear luke, you are halfway through designing the drain system. You need to find a way of saving the int. Also test the draining system, and randomsize the float that they drain by
-
+{ 
+    //This is a little code that allows me to access this specific code from any scene i need, so all the emotive and game winning ints are here because other mini games affect them
     private static MoodBehaviour instance = null;
     public static MoodBehaviour Instance
     {
@@ -28,8 +28,7 @@ public class MoodBehaviour : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
 
-       // QualitySettings.vSyncCount = 0;  // VSync must be disabled
-        //Application.targetFrameRate = 45;
+   
     }
 
     public float hygiene;
@@ -66,12 +65,12 @@ public class MoodBehaviour : MonoBehaviour
         drain();
         joy();
         creepinessScale();
-        Debug.Log(creepiness);
+       // Debug.Log(creepiness);
 
-        if (Input.GetKeyDown("space"))
+        /*if (Input.GetKeyDown("space"))
         {
             happiness = 130;
-        }
+        } */
 
      
 
@@ -89,22 +88,27 @@ public class MoodBehaviour : MonoBehaviour
             if (friendship >= 0) { friendship -= friendshipLoss * Time.deltaTime;}
         }
     }
-
-    void joy()
+    //Welcome to the secret int section
+    void joy() //Joy is how the player wins the game. Happiness increases gradually with time, however when a player attempts to interveine, everything gets worse. 
     {
         happiness += happinessGain * Time.deltaTime;
         if (happiness >= 120)
         {
             SceneManager.LoadScene("YouDidIt");
             Destroy(this.gameObject);
-            playerUnderstands = 1;
+            playerUnderstands = 1; //this should be a bool but i couldn't work out how to call bools from other texts so its just an int that is either 1 or 0. When the player 
+            if(happiness <= 0) //this prevents 0 from dropping below 0
+            {
+                happiness = 0.1f;
+            }
         }
+
     }
 
     void creepinessScale ()
     {
-        creepiness +=  1 * Time.deltaTime;
-        if(creepiness == 400)
+        creepiness +=  2 * Time.deltaTime;
+        if(creepiness == 350) //this is creepiness. It will continually increase, as, if the player hasn't won, then they are still hurting their friend. Thus the game gets harder, more hectic and more intense based on this one int.
         {
             SceneManager.LoadScene("Game Over");
             Destroy(this.gameObject);

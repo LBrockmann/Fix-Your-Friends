@@ -42,7 +42,7 @@ public class runningCanvasManager : MonoBehaviour {
             onScreenText.text = lossText;
             SceneManager.LoadScene("MenuScene"); //If the timer runs out the player is pulled back into the menu without the bonus
             Debug.Log("Loss");
-            MoodBehaviour.Instance.happiness -= 30; //if the player loses, they make their friend feel bad for being unable to complete the task so they lose happiness
+            MoodBehaviour.Instance.happiness -= 15; //if the player loses, they make their friend feel bad for being unable to complete the task so they lose happiness
         }
 	}
 }
