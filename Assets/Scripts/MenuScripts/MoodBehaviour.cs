@@ -115,5 +115,21 @@ public class MoodBehaviour : MonoBehaviour
         }
     }
 
+    void cap ()
+    {
+        if(hygiene > 50)
+        {
+            hygiene = 50;
+        }
+        if(friendship > 50)
+        {
+            friendship = 50;
+        }
+        if (excersize > 50)
+        {
+            excersize = 50;
+        }
+    }
+
    
 }
