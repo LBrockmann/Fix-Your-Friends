@@ -13,7 +13,6 @@ public class CanvasManager : MonoBehaviour {
     bool wagButtonPressed;
     bool textButtonPressed;
     bool helpButtonPressed;
-    bool restartButtonPressed;
     bool helpresetBool;
     private float timer1;
     private float timer2;
@@ -28,7 +27,6 @@ public class CanvasManager : MonoBehaviour {
         wagButtonPressed = false;
         textButtonPressed = false;
         helpButtonPressed = false;
-        restartButtonPressed = false;
 
     }
 
@@ -64,17 +62,6 @@ public class CanvasManager : MonoBehaviour {
         {
             panel.SetActive(false);
         }
-
-       if(restartButtonPressed)
-        {
-            MoodBehaviour.Instance.happiness = 20;
-            MoodBehaviour.Instance.creepiness = 0;
-            MoodBehaviour.Instance.happiness = 50;
-            MoodBehaviour.Instance.hygiene = 50;
-            MoodBehaviour.Instance.friendship = 50;
-
-           SceneManager.LoadScene("Opening Scene");
-        }
         
     }
     //Button Functions
@@ -107,7 +94,14 @@ public class CanvasManager : MonoBehaviour {
 
     public void onRestartButtonPressed()
     {
-        restartButtonPressed = true;
+        MoodBehaviour.Instance.happiness = 20;
+        MoodBehaviour.Instance.creepiness = 0;
+        MoodBehaviour.Instance.happiness = 50;
+        MoodBehaviour.Instance.hygiene = 50;
+        MoodBehaviour.Instance.friendship = 50;
+        MoodBehaviour.Instance.excersize = 50;
+
+        SceneManager.LoadScene("Opening Scene");
     }
 
 }
