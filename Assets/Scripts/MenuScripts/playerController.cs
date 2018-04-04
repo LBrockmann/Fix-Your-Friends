@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class playerController : MonoBehaviour {
     SpriteRenderer playerhomeSprite;
+    public GameObject head;
 
     public float moveSpeed;
     public float jumpForce;
@@ -13,6 +14,13 @@ public class playerController : MonoBehaviour {
     public KeyCode right;
     public KeyCode jump;
     public KeyCode start;
+
+    public Sprite greenState;
+    public Sprite yellowState;
+    public Sprite blueState;
+    public Sprite magentaState;
+    public Sprite greyState;
+    public Sprite blackState;
 
     public Text hudText;
 
@@ -35,7 +43,6 @@ public class playerController : MonoBehaviour {
 
         if (Input.GetKey(left))
         {
-            Debug.Log("moving left");
             theRB.velocity = new Vector2(-moveSpeed, theRB.velocity.y);
         }
 
@@ -60,31 +67,31 @@ public class playerController : MonoBehaviour {
     {
         if (MoodBehaviour.Instance.happiness <= 99 && MoodBehaviour.Instance.happiness >= 80)
         {
-            playerhomeSprite.color = Color.green;
+            head.GetComponent<SpriteRenderer>().sprite = greenState;
         }
         if (MoodBehaviour.Instance.happiness <= 79 && MoodBehaviour.Instance.happiness >= 60)
         {
-            playerhomeSprite.color = Color.yellow;
+            head.GetComponent<SpriteRenderer>().sprite = yellowState;
         }
         if (MoodBehaviour.Instance.happiness <= 59 && MoodBehaviour.Instance.happiness >= 40)
         {
-            playerhomeSprite.color = Color.blue;
+            head.GetComponent<SpriteRenderer>().sprite = blueState;
         }
         if(MoodBehaviour.Instance.happiness <= 39 && MoodBehaviour.Instance.happiness >= 20)
         {
-            playerhomeSprite.color = Color.magenta;
+            head.GetComponent<SpriteRenderer>().sprite = magentaState;
         }
         if (MoodBehaviour.Instance.happiness <= 19 && MoodBehaviour.Instance.happiness >= 11)
         {
-            playerhomeSprite.color = Color.grey;
+            head.GetComponent<SpriteRenderer>().sprite = greyState;
         }
         if (MoodBehaviour.Instance.happiness <= 10 && MoodBehaviour.Instance.happiness >= 1)
         {
-            playerhomeSprite.color = Color.black;
+            head.GetComponent<SpriteRenderer>().sprite = blackState;
         }
         if (MoodBehaviour.Instance.happiness <= 0)
         {
-            playerhomeSprite.color = Color.black;
+            head.GetComponent<SpriteRenderer>().sprite = blackState;
         }
     }
 }

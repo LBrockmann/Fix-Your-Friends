@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class OpeningScreenScript : MonoBehaviour {
 
+    public AudioSource buttonpresssound;
 	// Use this for initialization
 	void Start () {
 		
@@ -25,6 +26,13 @@ public class OpeningScreenScript : MonoBehaviour {
 
     public void callMenu()
     {
-        SceneManager.LoadScene("MenuScene");
+        buttonpresssound.Play();
+        StartCoroutine(sceneLoading("MenuScene"));
+    }
+
+    private IEnumerator sceneLoading(string whatisloading)
+    {
+        yield return new WaitForSeconds(0.1f);
+        SceneManager.LoadScene(whatisloading);
     }
 }

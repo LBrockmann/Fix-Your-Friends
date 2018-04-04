@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class beginHelpYourFriend : MonoBehaviour {
+public class TitleScreenScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -12,13 +12,10 @@ public class beginHelpYourFriend : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Input.anyKeyDown)
+        {
+            SceneManager.LoadScene("Opening Scene");
+        }
 
-    public void onButtonPushed()
-    {
-        SceneManager.LoadScene("Opening Scene");    
     }
-
-
 }

@@ -5,12 +5,20 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     SpriteRenderer Player;
+    SpriteRenderer playerhomeSprite;
+    public GameObject head;
     public float PlayerSpeed; //creating public float to easily edit how many clicks required to move the player 
     public float Acceleration;
     public float Resistance; //creating public float for easy access
     public Vector2 StartPos; //Vector just to ensure the player starts in the right spot
     public Rigidbody2D rb; //declaring rigid body
 
+    public Sprite greenState;
+    public Sprite yellowState;
+    public Sprite blueState;
+    public Sprite magentaState;
+    public Sprite greyState;
+    public Sprite blackState;
 
 
     void Start()
@@ -25,6 +33,7 @@ public class PlayerInput : MonoBehaviour
     {
         {
             creepinessCurve();
+            express();
             PlayerSpeed = -Resistance*Time.deltaTime;  //Gradually decreases the power of the force so the player is forced to mash the button faster than this line decreases the force 
             
             if (Input.GetKeyDown(KeyCode.Space))
@@ -58,6 +67,41 @@ public class PlayerInput : MonoBehaviour
         {
             Acceleration = 0.01f;
         }
+    }
+
+         void express()
+
+        {
+            if (MoodBehaviour.Instance.happiness <= 99 && MoodBehaviour.Instance.happiness >= 80)
+            {
+                head.GetComponent<SpriteRenderer>().sprite = greenState;
+            }
+            if (MoodBehaviour.Instance.happiness <= 79 && MoodBehaviour.Instance.happiness >= 60)
+            {
+                head.GetComponent<SpriteRenderer>().sprite = yellowState;
+            }
+            if (MoodBehaviour.Instance.happiness <= 59 && MoodBehaviour.Instance.happiness >= 40)
+            {
+                head.GetComponent<SpriteRenderer>().sprite = blueState;
+            }
+            if (MoodBehaviour.Instance.happiness <= 39 && MoodBehaviour.Instance.happiness >= 20)
+            {
+                head.GetComponent<SpriteRenderer>().sprite = magentaState;
+            }
+            if (MoodBehaviour.Instance.happiness <= 19 && MoodBehaviour.Instance.happiness >= 11)
+            {
+                head.GetComponent<SpriteRenderer>().sprite = greyState;
+            }
+            if (MoodBehaviour.Instance.happiness <= 10 && MoodBehaviour.Instance.happiness >= 1)
+            {
+                head.GetComponent<SpriteRenderer>().sprite = blackState;
+            }
+            if (MoodBehaviour.Instance.happiness <= 0)
+            {
+                head.GetComponent<SpriteRenderer>().sprite = blackState;
+            }
+        
+
     }
 }
 

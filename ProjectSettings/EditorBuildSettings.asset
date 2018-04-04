@@ -29,3 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/YouDidIt.unity
     guid: 6dcbb553040766842991f8e4d03e2e3a
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: d8b004d7e9a5c2743bf797cc98315982

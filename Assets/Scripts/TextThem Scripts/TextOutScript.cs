@@ -13,6 +13,7 @@ public class TextOutScript : MonoBehaviour {
     public Image messageBox;
     public GameObject pannel;
 
+    public AudioSource onTypeSound;
     public int messagesSent;
 
     public Text inputText;
@@ -94,6 +95,7 @@ public class TextOutScript : MonoBehaviour {
             {
                 MessageSequenceThree(); 
             }
+            onTypeSound.Play();
         }
 	}
 
