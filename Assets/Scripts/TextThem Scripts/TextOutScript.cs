@@ -14,6 +14,7 @@ public class TextOutScript : MonoBehaviour {
     public GameObject pannel;
 
     public AudioSource onTypeSound;
+    public AudioSource onSend;
     public int messagesSent;
 
     public Text inputText;
@@ -115,6 +116,7 @@ public class TextOutScript : MonoBehaviour {
         }
         else if (i == messages[rNum].Length && Input.GetKeyDown(KeyCode.Return))
         {
+            onSend.Play();
             messagesSent++;
             typingmessages(messages[rNum]);
             inputText.text = "";
@@ -139,6 +141,7 @@ public class TextOutScript : MonoBehaviour {
         }
         else if (i == messagesTwo[rNum].Length && Input.GetKeyDown(KeyCode.Return))
         {
+            onSend.Play();
             messagesSent++;
             typingmessages(messagesTwo[rNum]);
             inputText.text = "";
@@ -162,6 +165,7 @@ public class TextOutScript : MonoBehaviour {
         }
         else if (i == messages3[rNum].Length && Input.GetKeyDown(KeyCode.Return))
         {
+            onSend.Play();
             messagesSent++;
             typingmessages(messages3[rNum]);
             inputText.text = "";

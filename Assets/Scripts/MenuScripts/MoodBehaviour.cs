@@ -65,12 +65,6 @@ public class MoodBehaviour : MonoBehaviour
         drain();
         joy();
         creepinessScale();
-       // Debug.Log(creepiness);
-
-        /*if (Input.GetKeyDown("space"))
-        {
-            happiness = 130;
-        } */
 
      
 
@@ -89,12 +83,12 @@ public class MoodBehaviour : MonoBehaviour
         }
     }
     //Welcome to the secret int section
-    void joy() //Joy is how the player wins the game. Happiness increases gradually with time, however when a player attempts to interveine, everything gets worse. 
+    void joy() //Joy manages the mechanisms of happiness, what makes it go up and down
     {
-        happiness += happinessGain * Time.deltaTime;
+        happiness += happinessGain * Time.deltaTime; //Constantly gradually increasing
         if (happiness >= 120)
         {
-            SceneManager.LoadScene("YouDidIt");
+            SceneManager.LoadScene("YouDidIt"); //WinState
             Destroy(this.gameObject);
             playerUnderstands = 1; //this should be a bool but i couldn't work out how to call bools from other texts so its just an int that is either 1 or 0. When the player 
             if(happiness <= 0) //this prevents 0 from dropping below 0

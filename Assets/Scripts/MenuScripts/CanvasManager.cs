@@ -15,6 +15,7 @@ public class CanvasManager : MonoBehaviour {
     private float timer2;
 
     public AudioSource buttonAudioSource;
+    public AudioSource backgroundnoise;
 
     public GameObject panel;
 
@@ -23,7 +24,7 @@ public class CanvasManager : MonoBehaviour {
     // Use this for initialization
     void Start() {
         helpButtonPressed = false;
-
+        backgroundnoise.Play();
     }
 
     // Update is called once per frame
@@ -44,7 +45,6 @@ public class CanvasManager : MonoBehaviour {
     {
         buttonAudioSource.Play();
         Debug.Log("ButtonPressed");
-        runButton.text = "please";
         StartCoroutine(sceneLoading("RunningScene"));
     }
 
@@ -53,7 +53,6 @@ public class CanvasManager : MonoBehaviour {
         buttonAudioSource.Play();
         
         Debug.Log("ButtonPressed");
-        wagButton.text = "stop";
         StartCoroutine(sceneLoading("TellOffScene"));
     }
 
