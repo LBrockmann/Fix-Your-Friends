@@ -63,6 +63,17 @@ public class playerController : MonoBehaviour {
         
 	}
 
+	//void Shoot1 () {
+		//Vector2 firePointPosition = new Vector2 (firePoint.position.x, firePoint.position.y);
+		//Vector2 firedirectionPosition = new Vector2 (firedirection1.position.x, firedirection1.position.y);
+		
+		//GameObject bulletS = Instantiate (BulletSpritePrefab, firePoint.position, firePoint.rotation);
+		//bulletS.GetComponent<BulletScript> ().myCaster = this.gameObject;
+		//GetComponent<Rigidbody2D>().AddForce ((firedirectionPosition-firePointPosition).normalized*10, ForceMode2D.Impulse);
+		
+	//}
+
+
     void Expression()
     {
         if (MoodBehaviour.Instance.happiness <= 99 && MoodBehaviour.Instance.happiness >= 80)
