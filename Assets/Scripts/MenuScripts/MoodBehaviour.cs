@@ -35,12 +35,21 @@ public class MoodBehaviour : MonoBehaviour
     public float excersize;
     public float friendship;
 
+    public int intervention;
+    public float happybalance;
+    public float difficultybalance;
+
     public float creepiness;
 
     
     public float hygieneLoss;
     public float excersizeLoss;
     public float friendshipLoss;
+
+    public float AllLoss;
+    public float randomizer;
+    bool timerDone;
+    public float Happinesstimer;
 
     public float happiness;
     public float happinessGain;
@@ -52,7 +61,7 @@ public class MoodBehaviour : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+        timerDone = false; 
     }
 
     // Update is called once per frame
@@ -85,13 +94,24 @@ public class MoodBehaviour : MonoBehaviour
     //Welcome to the secret int section
     void joy() //Joy manages the mechanisms of happiness, what makes it go up and down
     {
-        happiness += happinessGain * Time.deltaTime; //Constantly gradually increasing
+        //The Following if statements prevent happiness from increasing immediately, so the player is more likely to decrease it before increasing it, allowing happiness to start high and drop low
+        if (Happinesstimer <= 30) {
+            Happinesstimer = Happinesstimer += 1 * Time.deltaTime;
+        }
+        else if (Happinesstimer > 30) {
+            timerDone = true;
+        }
+        //Once the timer is finished, happiness will begin to increase over time
+        if (timerDone == true)
+        {
+            happiness += happinessGain * Time.deltaTime;
+        }
         if (happiness >= 120)
         {
             SceneManager.LoadScene("YouDidIt"); //WinState
             Destroy(this.gameObject);
-            playerUnderstands = 1; //this should be a bool but i couldn't work out how to call bools from other texts so its just an int that is either 1 or 0. When the player 
-            if(happiness <= 0) //this prevents 0 from dropping below 0
+            playerUnderstands = 1; //this should be a bool but i couldn't work out how to call bools from other texts so its just an int that is either 1 or 0. Just a small easter egg
+            if(happiness <= 0) //this prevents happiness from dropping below 0
             {
                 happiness = 0.1f;
             }
@@ -123,6 +143,11 @@ public class MoodBehaviour : MonoBehaviour
         {
             excersize = 50;
         }
+    }
+
+    void escalation()
+    {
+        AllLoss = ((((100 - happiness) / happybalance) + randomizer) / difficultybalance); //This hopefully will scale its loss based on the happiness int
     }
 
    
