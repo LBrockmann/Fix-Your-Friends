@@ -126,8 +126,8 @@ public class TextOutScript : MonoBehaviour {
         if (messagesSent >= 3)
         {
             SceneManager.LoadScene("MenuScene");
-            MoodBehaviour.Instance.friendship += 15f;
-            MoodBehaviour.Instance.happiness -= 5f;
+            MoodBehaviour.Instance.friendship += 10f;
+            MoodBehaviour.Instance.happiness -= 10f;
         }
     }
 

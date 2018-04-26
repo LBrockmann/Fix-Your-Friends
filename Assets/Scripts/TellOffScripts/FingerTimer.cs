@@ -43,7 +43,7 @@ public class FingerTimer : MonoBehaviour { //image and text should both be light
             //Time.timeScale = 0;
             SceneManager.LoadScene("MenuScene"); //If the timer runs out the player is pulled back into the menu without the bonus
             Debug.Log("Loss");
-            MoodBehaviour.Instance.happiness -= 15;
+            MoodBehaviour.Instance.happiness -=5;
         }
 
     }

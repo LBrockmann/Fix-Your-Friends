@@ -25,8 +25,8 @@ public class FingerBehaviour : MonoBehaviour
 
         if (Bottomcount >= finishLine && TopCount >= finishLine) //If both win counters are equal too or higher than the "finish line" the game ends
         {
-            MoodBehaviour.Instance.hygiene += 20f;
-            MoodBehaviour.Instance.happiness -= 10f;
+            MoodBehaviour.Instance.hygiene += 10f;
+            MoodBehaviour.Instance.happiness -= 20;
             SceneManager.LoadScene("MenuScene"); //Load the menu scene
         }
     }
