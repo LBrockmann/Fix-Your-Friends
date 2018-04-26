@@ -24,8 +24,8 @@ public class WinCondition : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Collided");
-            MoodBehaviour.Instance.excersize += 5f;
-            MoodBehaviour.Instance.happiness -= 10f;
+            MoodBehaviour.Instance.excersize += 10f;
+            MoodBehaviour.Instance.happiness -= 20f;
             SceneManager.LoadScene("MenuScene"); //When the player crosses the finish line they should be pulled straight back to the menu
             //Add onto the player stats somehow
         }

@@ -32,28 +32,28 @@ public class TextOutScript : MonoBehaviour {
         messages = new string[15];
         messages[0] = "Hey";
         messages[4] = "<3";
-        messages[5] = "Have you been for a run today?";
-        messages[6] = "How you sleeping?";
-        messages[7] = "We're worried about you.";
-        messages[8] = "I just wanted to ask you how you've been doing?";
+        messages[5] = ":D";
+        messages[6] = ";)";
+        messages[7] = "Awesome seeing you yesterday!";
+        messages[8] = "How've you been?";
         messages[1] = "Missing you heaps!";
         messages[2] = "What's up? How you doin!";
         messages[3] = "Thinking about you!";
-        messages[9] = "Don't be too hard on yourself! Everyone is special";
-        messages[10] = "Happiness is just an attitude!";
-        messages[11] = "You can text me whenever you need!";
-        messages[12] = "Are you ignoring me?";
-        messages[13] = "Why won't you hang out with us any more?";
-        messages[14] = "You're being a little dramatic";
+        messages[9] = "How's work?";
+        messages[10] = "Miss ya";
+        messages[11] = "Yo, movie tonight?";
+        messages[12] = "Let's go for a hije";
+        messages[13] = "Miss you boo :P?";
+        messages[14] = "Caught the game?";
 
         messagesTwo = new string[7];
         messagesTwo[0] = "Hey";
-        messagesTwo[1] = "I know you're depressed and all but that doesn't mean you can just shut me out.";
-        messagesTwo[2] = "Is it because you don't trust me or something? I can keep a secret";
+        messagesTwo[1] = "I'm just really worrried about you";
+        messagesTwo[2] = "Is it because you don't trust me?";
         messagesTwo[3] = "Did you cut? Send me photos.";
-        messagesTwo[4] = "You know when I failed my class last year I hated EVERYTHING. I totally understand how you feel.";
-        messagesTwo[5] = "Are you asleep again? ffs. Can you just get up? I'm trying to talk to you.";
-        messagesTwo[6] = "Kinda stressing about you. You haven't messaged in a while so I hope you're all good";
+        messagesTwo[4] = "Why aren't you responding?";
+        messagesTwo[5] = "Did I do something wrong?";
+        messagesTwo[6] = "You're really freaking me out.";
 
         messages3 = new string[6];
         messages3[0] = "Hey";
@@ -84,7 +84,7 @@ public class TextOutScript : MonoBehaviour {
         Debug.Log(messagesTwo);
         if (Input.anyKeyDown)
         {
-            if(MoodBehaviour.Instance.happiness <= 40)
+            if(MoodBehaviour.Instance.happiness <= 120 && MoodBehaviour.Instance.happiness > 90)
             {
                 MessageSequenceOne();
             }
@@ -92,7 +92,7 @@ public class TextOutScript : MonoBehaviour {
             {
                 MessageSequenceTwo();
             }
-            if(MoodBehaviour.Instance.happiness > 90 && MoodBehaviour.Instance.happiness <= 120)
+            if(MoodBehaviour.Instance.happiness > 0 && MoodBehaviour.Instance.happiness <= 39)
             {
                 MessageSequenceThree(); 
             }
@@ -176,7 +176,7 @@ public class TextOutScript : MonoBehaviour {
         {
             SceneManager.LoadScene("MenuScene");
             MoodBehaviour.Instance.friendship += 15f;
-            MoodBehaviour.Instance.happiness -= 5f;
+            MoodBehaviour.Instance.happiness -= 10f;
         }
     }
 }

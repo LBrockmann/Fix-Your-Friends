@@ -39,18 +39,11 @@ public class MoodBehaviour : MonoBehaviour
     public float happybalance;
     public float difficultybalance;
 
-    public float creepiness;
-
+ 
     
-    public Sprite bedMade;
-    public Sprite bedunmade;
-    public Sprite oven;
-    public Sprite ovenEmpty;
-    public Sprite ovenChicken;
-    
-    float hygieneLoss;
-    float excersizeLoss;
-    float friendshipLoss;
+    public float hygieneLoss;
+    public float excersizeLoss;
+    public float friendshipLoss;
     float hRandom;
     float eRandom;
     float fRandom;
@@ -64,6 +57,8 @@ public class MoodBehaviour : MonoBehaviour
     public float happinessGain;
 
     public int playerUnderstands = 0;
+
+    bool happinessreset = true;
     
 
 
@@ -82,10 +77,8 @@ public class MoodBehaviour : MonoBehaviour
         fRandom = Random.Range(1, 7);
         drain();
         joy();
-        creepinessScale();
         escalation();
-     
-
+       
     }
 
     void drain()
@@ -104,16 +97,24 @@ public class MoodBehaviour : MonoBehaviour
     void joy() //Joy manages the mechanisms of happiness, what makes it go up and down  
     {
         //The Following if statements prevent happiness from increasing immediately, so the player is more likely to decrease it before increasing it, allowing happiness to start high and drop low
-        if (Happinesstimer <= 30) {
+        if (Happinesstimer <= 15) {
             Happinesstimer = Happinesstimer += 1 * Time.deltaTime;
         }
-        else if (Happinesstimer > 30) {
+        else if (Happinesstimer > 15) {
             timerDone = true;
         }
         //Once the timer is finished, happiness will begin to increase over time
         if (timerDone == true)
         {
+           if(happinessreset == true)
+            {
+                happiness = 60;
+                happinessreset = false;
+            }
+
+            AllLoss = ((120 - happiness) / happybalance);
             happiness += happinessGain * Time.deltaTime;
+            
         }
         if (happiness >= 120)
         {
@@ -128,15 +129,6 @@ public class MoodBehaviour : MonoBehaviour
 
     }
 
-    void creepinessScale ()
-    {
-        creepiness +=  2 * Time.deltaTime;
-        if(creepiness == 350) //this is creepiness. It will continually increase, as, if the player hasn't won, then they are still hurting their friend. Thus the game gets harder, more hectic and more intense based on this one int.
-        {
-            SceneManager.LoadScene("Game Over");
-            Destroy(this.gameObject);
-        }
-    }
 
     void cap ()
     {
@@ -156,8 +148,8 @@ public class MoodBehaviour : MonoBehaviour
 
     void escalation()
     {
-        AllLoss = ((120 - happiness) / happybalance); //This hopefully will scale its loss based on the happiness int
-
+        //This hopefully will scale its loss based on the happiness int
+        //AllLoss = ((120 - happiness) / happybalance);
         hygieneLoss = (AllLoss + hRandom) / difficultybalance;
         excersizeLoss = (AllLoss + eRandom) / difficultybalance;
         friendshipLoss = (AllLoss + fRandom) / difficultybalance;

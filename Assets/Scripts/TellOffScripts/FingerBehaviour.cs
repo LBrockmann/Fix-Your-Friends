@@ -71,15 +71,15 @@ public class FingerBehaviour : MonoBehaviour
         }
         if (MoodBehaviour.Instance.happiness >= 40 && MoodBehaviour.Instance.happiness <= 60)
         {
-            finishLine = 30;
+            finishLine = 25;
         }
-        if (MoodBehaviour.Instance.happiness >= 80 && MoodBehaviour.Instance.happiness <= 100)
+        if (MoodBehaviour.Instance.happiness >= 60 && MoodBehaviour.Instance.happiness <= 90)
         {
-            finishLine = 20;
+            finishLine = 15;
         }
-        if (MoodBehaviour.Instance.happiness >= 100 && MoodBehaviour.Instance.happiness <= 11)
+        if (MoodBehaviour.Instance.happiness >= 90 && MoodBehaviour.Instance.happiness <= 110)
         {
-            finishLine = 10;
+            finishLine = 5;
         }
     }
 }

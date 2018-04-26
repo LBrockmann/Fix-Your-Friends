@@ -33,6 +33,10 @@ public class CanvasManager : MonoBehaviour {
        if(helpButtonPressed == true)
         {
             panel.SetActive(true);
+           // MoodBehaviour.Instance.hygieneLoss = 0;
+            //MoodBehaviour.Instance.excersizeLoss = 0;
+            //MoodBehaviour.Instance.excersizeLoss = 0;
+
         }
         else
         {
@@ -83,7 +87,7 @@ public class CanvasManager : MonoBehaviour {
     {
         buttonAudioSource.Play();
         MoodBehaviour.Instance.happiness = 60;
-        MoodBehaviour.Instance.creepiness = 0;
+        //MoodBehaviour.Instance.creepiness = 0;
         MoodBehaviour.Instance.happiness = 50;
         MoodBehaviour.Instance.hygiene = 50;
         MoodBehaviour.Instance.friendship = 50;

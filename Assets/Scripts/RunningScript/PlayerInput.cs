@@ -55,15 +55,15 @@ public class PlayerInput : MonoBehaviour
         {
             Acceleration = 0.8f;
         }
-        if (MoodBehaviour.Instance.happiness >= 40 && MoodBehaviour.Instance.happiness <= 80)
-        {
-            Acceleration = 1f;
-        }
-        if (MoodBehaviour.Instance.happiness >= 80 && MoodBehaviour.Instance.happiness <= 100)
+        if (MoodBehaviour.Instance.happiness >= 40 && MoodBehaviour.Instance.happiness <= 70)
         {
             Acceleration = 1.3f;
         }
-        if (MoodBehaviour.Instance.happiness >= 100 && MoodBehaviour.Instance.happiness <= 120)
+        if (MoodBehaviour.Instance.happiness >= 70 && MoodBehaviour.Instance.happiness <= 90)
+        {
+            Acceleration = 1.7f;
+        }
+        if (MoodBehaviour.Instance.happiness >= 90 && MoodBehaviour.Instance.happiness <= 120)
         {
             Acceleration = 2f;
         }
