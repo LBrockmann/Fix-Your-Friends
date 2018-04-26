@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4635549585329202}
   - component: {fileID: 212425597855483862}
-  - component: {fileID: 114084421321425540}
   - component: {fileID: 50582342869684356}
   m_Layer: 0
   m_Name: CloudPrefab
@@ -62,18 +61,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &114084421321425540
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1160161876511938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a97de132ff95a4165b71507e14d3ce9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CloudPrefab: {fileID: 0}
 --- !u!212 &212425597855483862
 SpriteRenderer:
   m_ObjectHideFlags: 1
