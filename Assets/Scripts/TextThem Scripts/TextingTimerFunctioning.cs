@@ -11,7 +11,7 @@ public class TextingTimerFunctioning : MonoBehaviour {
     private string lossText = "Too Slow!";
     Image timerBar;
     public float maxTime = 5f;
-    float timeLeft; //
+    float timeLeft; 
     bool restartReady;
 
     bool hasSwitchedBack = false;

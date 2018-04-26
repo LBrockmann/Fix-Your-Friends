@@ -35,14 +35,14 @@ public class TextOutScript : MonoBehaviour {
         messages[5] = "Have you been for a run today?";
         messages[6] = "How you sleeping?";
         messages[7] = "We're worried about you.";
-        messages[8] = "I just wanted to ask you how you've been doing. Super worried about you!";
-        messages[1] = "Missing you heaps! Everyone's asking after you!";
-        messages[2] = "What's up? How you doin! We should totally go out sometime! Hit me up.";
+        messages[8] = "I just wanted to ask you how you've been doing?";
+        messages[1] = "Missing you heaps!";
+        messages[2] = "What's up? How you doin!";
         messages[3] = "Thinking about you!";
         messages[9] = "Don't be too hard on yourself! Everyone is special";
         messages[10] = "Happiness is just an attitude!";
         messages[11] = "You can text me whenever you need!";
-        messages[12] = "Where have you been? Are you ignoring me?";
+        messages[12] = "Are you ignoring me?";
         messages[13] = "Why won't you hang out with us any more?";
         messages[14] = "You're being a little dramatic";
 
@@ -63,15 +63,15 @@ public class TextOutScript : MonoBehaviour {
         messages3[4] = "I love you, I'm just tired. I have been trying tirelessly to help you and all you do is push back and resist and make everything harder. You've been so ungrateful of everything I do for you.";
         messages3[5] = "You know what? I'm sick of this. You need to clean up your act. Seriously. I am not going to let you fucking waste your life and your time by being lazy. Get your shit together";
 
-        if (MoodBehaviour.Instance.creepiness <= 100)
+        if (MoodBehaviour.Instance.happiness <= 40)
         {
             rNum = Random.Range(0, messages.Length);
         }
-        else if (MoodBehaviour.Instance.creepiness > 100 && MoodBehaviour.Instance.creepiness <= 250)
+        else if (MoodBehaviour.Instance.happiness > 40 && MoodBehaviour.Instance.happiness <= 90)
         {
             rNum = Random.Range(0, messagesTwo.Length);
         }
-        else if (MoodBehaviour.Instance.creepiness > 250 && MoodBehaviour.Instance.creepiness <= 350)
+        else if (MoodBehaviour.Instance.happiness > 90 && MoodBehaviour.Instance.happiness <= 120)
         {
             rNum = Random.Range(0, messages3.Length);
         }
@@ -84,15 +84,15 @@ public class TextOutScript : MonoBehaviour {
         Debug.Log(messagesTwo);
         if (Input.anyKeyDown)
         {
-            if(MoodBehaviour.Instance.creepiness <= 100)
+            if(MoodBehaviour.Instance.happiness <= 40)
             {
                 MessageSequenceOne();
             }
-            if(MoodBehaviour.Instance.creepiness > 100 && MoodBehaviour.Instance.creepiness <= 250)
+            if(MoodBehaviour.Instance.happiness > 40 && MoodBehaviour.Instance.happiness <= 90)
             {
                 MessageSequenceTwo();
             }
-            if(MoodBehaviour.Instance.creepiness > 250 && MoodBehaviour.Instance.creepiness <= 350)
+            if(MoodBehaviour.Instance.happiness > 90 && MoodBehaviour.Instance.happiness <= 120)
             {
                 MessageSequenceThree(); 
             }

@@ -11,13 +11,13 @@ public class CloudShitScript : MonoBehaviour {
 	float cloudSpeed = 0.5f;
 
 	void Start() {
-		//Instantiate(cloud, new Vector2(x, y), Quaternion.identity);
-
+        //Instantiate(cloud, new Vector2(x, y), Quaternion.identity);
+        t = 50;
 	}
 
 	void Update (){
 		t = t + 0.1f;
-			if (t > 100) {
+			if (t > 50) {
 				Cloud ();
 			}
 		y = y + 1.3f;

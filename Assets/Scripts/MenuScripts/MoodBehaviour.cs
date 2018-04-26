@@ -42,12 +42,21 @@ public class MoodBehaviour : MonoBehaviour
     public float creepiness;
 
     
-    public float hygieneLoss;
-    public float excersizeLoss;
-    public float friendshipLoss;
-
+    public Sprite bedMade;
+    public Sprite bedunmade;
+    public Sprite oven;
+    public Sprite ovenEmpty;
+    public Sprite ovenChicken;
+    
+    float hygieneLoss;
+    float excersizeLoss;
+    float friendshipLoss;
+    float hRandom;
+    float eRandom;
+    float fRandom;
     public float AllLoss;
-    public float randomizer;
+
+
     bool timerDone;
     public float Happinesstimer;
 
@@ -68,13 +77,13 @@ public class MoodBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         //Set different loss rates to a random number
-        hygieneLoss = Random.Range(1, 5);
-        excersizeLoss = Random.Range(1, 3);
-        friendshipLoss = Random.Range(1, 7);
+        hRandom = Random.Range(1, 5);
+        eRandom = Random.Range(1, 3);
+        fRandom = Random.Range(1, 7);
         drain();
         joy();
         creepinessScale();
-
+        escalation();
      
 
     }
@@ -92,7 +101,7 @@ public class MoodBehaviour : MonoBehaviour
         }
     }
     //Welcome to the secret int section
-    void joy() //Joy manages the mechanisms of happiness, what makes it go up and down
+    void joy() //Joy manages the mechanisms of happiness, what makes it go up and down  
     {
         //The Following if statements prevent happiness from increasing immediately, so the player is more likely to decrease it before increasing it, allowing happiness to start high and drop low
         if (Happinesstimer <= 30) {
@@ -108,7 +117,7 @@ public class MoodBehaviour : MonoBehaviour
         }
         if (happiness >= 120)
         {
-            SceneManager.LoadScene("YouDidIt"); //WinState
+              SceneManager.LoadScene("YouDidIt"); //WinState
             Destroy(this.gameObject);
             playerUnderstands = 1; //this should be a bool but i couldn't work out how to call bools from other texts so its just an int that is either 1 or 0. Just a small easter egg
             if(happiness <= 0) //this prevents happiness from dropping below 0
@@ -147,8 +156,14 @@ public class MoodBehaviour : MonoBehaviour
 
     void escalation()
     {
-        AllLoss = ((((100 - happiness) / happybalance) + randomizer) / difficultybalance); //This hopefully will scale its loss based on the happiness int
+        AllLoss = ((120 - happiness) / happybalance); //This hopefully will scale its loss based on the happiness int
+
+        hygieneLoss = (AllLoss + hRandom) / difficultybalance;
+        excersizeLoss = (AllLoss + eRandom) / difficultybalance;
+        friendshipLoss = (AllLoss + fRandom) / difficultybalance;
     }
+
+    
 
    
 }

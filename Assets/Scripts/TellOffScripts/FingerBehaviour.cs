@@ -61,25 +61,25 @@ public class FingerBehaviour : MonoBehaviour
 
     void creepinessCurve()
     {
-        if (MoodBehaviour.Instance.creepiness <= 50)
+        if (MoodBehaviour.Instance.happiness <= 20)
         {
-            finishLine = 10;
+            finishLine = 100;
         }
-        if (MoodBehaviour.Instance.creepiness >= 51 && MoodBehaviour.Instance.creepiness <= 100)
-        {
-            finishLine = 20;
-        }
-        if (MoodBehaviour.Instance.creepiness >= 101 && MoodBehaviour.Instance.creepiness <= 200)
-        {
-            finishLine = 30;
-        }
-        if (MoodBehaviour.Instance.creepiness >= 201 && MoodBehaviour.Instance.creepiness <= 300)
+        if (MoodBehaviour.Instance.happiness >= 20 && MoodBehaviour.Instance.happiness <= 40)
         {
             finishLine = 40;
         }
-        if (MoodBehaviour.Instance.creepiness >= 301 && MoodBehaviour.Instance.creepiness <= 350)
+        if (MoodBehaviour.Instance.happiness >= 40 && MoodBehaviour.Instance.happiness <= 60)
         {
-            finishLine = 100;
+            finishLine = 30;
+        }
+        if (MoodBehaviour.Instance.happiness >= 80 && MoodBehaviour.Instance.happiness <= 100)
+        {
+            finishLine = 20;
+        }
+        if (MoodBehaviour.Instance.happiness >= 100 && MoodBehaviour.Instance.happiness <= 11)
+        {
+            finishLine = 10;
         }
     }
 }

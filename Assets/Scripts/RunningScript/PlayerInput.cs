@@ -47,25 +47,25 @@ public class PlayerInput : MonoBehaviour
 
     void creepinessCurve() //Just decreasing the amount of force behind each push as the game continues so eventually its almost impossible to move your friend
     {
-        if (MoodBehaviour.Instance.creepiness <= 50)
+        if (MoodBehaviour.Instance.happiness <= 20)
         {
-            Acceleration = 2;
+            Acceleration = 0.01f;
         }
-        if (MoodBehaviour.Instance.creepiness >= 51 && MoodBehaviour.Instance.creepiness <= 100)
-        {
-            Acceleration = 1;
-        }
-        if (MoodBehaviour.Instance.creepiness >= 101 && MoodBehaviour.Instance.creepiness <= 200)
+        if (MoodBehaviour.Instance.happiness >= 20 && MoodBehaviour.Instance.happiness <= 40)
         {
             Acceleration = 0.8f;
         }
-        if (MoodBehaviour.Instance.creepiness >= 201 && MoodBehaviour.Instance.creepiness <= 300)
+        if (MoodBehaviour.Instance.happiness >= 40 && MoodBehaviour.Instance.happiness <= 80)
         {
-            Acceleration = 0.4f;
+            Acceleration = 1f;
         }
-        if (MoodBehaviour.Instance.creepiness >= 301 && MoodBehaviour.Instance.creepiness <= 350)
+        if (MoodBehaviour.Instance.happiness >= 80 && MoodBehaviour.Instance.happiness <= 100)
         {
-            Acceleration = 0.01f;
+            Acceleration = 1.3f;
+        }
+        if (MoodBehaviour.Instance.happiness >= 100 && MoodBehaviour.Instance.happiness <= 120)
+        {
+            Acceleration = 2f;
         }
     }
 

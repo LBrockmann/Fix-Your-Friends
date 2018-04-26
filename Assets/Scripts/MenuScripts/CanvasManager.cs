@@ -82,7 +82,7 @@ public class CanvasManager : MonoBehaviour {
     public void onRestartButtonPressed()
     {
         buttonAudioSource.Play();
-        MoodBehaviour.Instance.happiness = 20;
+        MoodBehaviour.Instance.happiness = 60;
         MoodBehaviour.Instance.creepiness = 0;
         MoodBehaviour.Instance.happiness = 50;
         MoodBehaviour.Instance.hygiene = 50;
